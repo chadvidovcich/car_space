@@ -2,5 +2,6 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('vehicles.urls')),
+    path('', include('frontend.urls')),
+    path('', include('vehicles.urls'))
 ]
