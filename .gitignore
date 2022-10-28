@@ -1,12 +1,13 @@
+# Django #
+*.log
+*.pot
 *.pyc
-/backend/db.sqlite3
-.DS_Store
-.env
+__pycache__
+local_settings.py
 */settings/local.py
-/staticfiles/*
-/mediafiles/*
-__pycache__/
-/.vscode/
+db.sqlite3
+media
+uploads
 
 # coverage result
 .coverage
@@ -37,20 +38,15 @@ npm-debug.log
 /env/
 /output/
 /cache/
-boilerplate.zip
+.DS_Store
+/staticfiles/*
+/mediafiles/*
+/.vscode/
 
+.env
 .direnv
 .envrc
 .tool-versions
-
-# Django #
-*.log
-*.pot
-*.pyc
-__pycache__
-db.sqlite3
-media
-uploads
 
 # Backup files # 
 *.bak 
