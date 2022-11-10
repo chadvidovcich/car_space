@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { GET_VEHICLES, DELETE_VEHICLE, ADD_VEHICLE } from './types'
+import { GET_VEHICLES, DELETE_VEHICLE, ADD_VEHICLE, GET_ERRORS } from './types'
 
 // GET VEHICLES
 export const getVehicles = () => dispatch => {
@@ -25,7 +25,16 @@ export const addVehicle = (vehicle) => dispatch => {
                 payload: res.data
             })
         })
-        .catch(err => console.log(err))
+        .catch(err => {
+            const errors = {
+                msg: err.response.data,
+                status: err.response.status
+            }
+            dispatch({
+                type: GET_ERRORS,
+                payload: errors
+            })
+        })
 }
 
 // DELETE VEHICLE
