@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { createMessage } from './messages'
 
 import { GET_VEHICLES, DELETE_VEHICLE, ADD_VEHICLE, GET_ERRORS } from './types'
 
@@ -20,6 +21,7 @@ export const addVehicle = (vehicle) => dispatch => {
     axios
         .post(`/api/vehicles/`, vehicle)
         .then(res => {
+            dispatch(createMessage({addVehicle: "Vehicle Added"}))
             dispatch({
                 type: ADD_VEHICLE,
                 payload: res.data
@@ -42,6 +44,7 @@ export const deleteVehicle = (id) => dispatch => {
     axios
         .delete(`/api/vehicles/${id}/`)
         .then(res => {
+            dispatch(createMessage({deleteVehicle: "Vehicle Deleted"}))
             dispatch({
                 type: DELETE_VEHICLE,
                 payload: id
