@@ -22,6 +22,11 @@ onSubmit = e => {
   const { make, model, year } = this.state
   const vehicle = { make, model, year }
   this.props.addVehicle(vehicle)
+  this.setState({
+    make: "",
+    model: "",
+    year: ""
+  })
 }
 
   render() {
